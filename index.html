@@ -537,14 +537,13 @@
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
         padding: 40px;
         position: relative;
-        font-family: "Sacramento", cursive; /* CHANGED TO SACRAMENTO */
-        font-size: 1.6rem; /* Slightly larger for better readability */
+        font-family: "Sacramento", cursive; /* Romantic font for desktop */
+        font-size: 1.6rem;
         line-height: 1.9;
         color: #5a3939;
         box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
       }
 
-      /* Letter Header - Sacramento for elegant opening */
       .letter-header {
         text-align: left;
         margin-bottom: 25px;
@@ -559,7 +558,6 @@
         margin: 0;
       }
 
-      /* Letter Body - Sacramento for handwritten feel */
       .letter-body {
         font-family: "Sacramento", cursive;
         font-size: 1.6rem;
@@ -573,7 +571,6 @@
         text-align: justify;
       }
 
-      /* Letter Footer - Sacramento for signature */
       .letter-footer {
         text-align: right;
         margin-top: 40px;
@@ -596,7 +593,6 @@
         font-weight: 400;
         letter-spacing: 2px;
       }
-
       /* Wax Seal */
       .seal {
         position: absolute;
@@ -622,32 +618,43 @@
       /* Mobile Responsive - Phone Screens */
       @media (max-width: 768px) {
         .letter-box {
+          font-family: "Montserrat", sans-serif; /* Normal font for mobile */
           padding: 30px 25px;
           margin: 30px auto;
-          font-size: 1.5rem;
+          font-size: 1.2rem;
+          line-height: 1.8;
         }
 
         .letter-header {
-          font-size: 2.4rem;
+          font-family: "Montserrat", sans-serif; /* Normal font */
+          font-size: 1.8rem;
+          font-weight: 600;
           text-align: left;
         }
 
         .letter-body {
-          font-size: 1.5rem;
+          font-family: "Montserrat", sans-serif; /* Normal font */
+          font-size: 1.15rem;
           line-height: 1.8;
         }
 
         .letter-body p {
           margin-bottom: 15px;
-          font-size: 1.5rem;
+          font-size: 1.15rem;
+        }
+
+        .letter-footer {
+          font-family: "Montserrat", sans-serif; /* Normal font */
         }
 
         .letter-footer p:first-child {
-          font-size: 2rem;
+          font-size: 1.5rem;
+          font-weight: 600;
         }
 
         .letter-footer p:last-child {
-          font-size: 2.5rem;
+          font-size: 1.8rem;
+          font-weight: 700;
         }
 
         .seal {
@@ -664,34 +671,28 @@
         .letter-box {
           padding: 25px 20px;
           margin: 20px 15px;
-          font-size: 1.4rem;
+          font-size: 1.1rem;
         }
 
         .letter-header {
-          font-size: 2.2rem;
+          font-size: 1.6rem;
         }
 
         .letter-body {
-          font-size: 1.4rem;
-          line-height: 1.8;
+          font-size: 1.05rem;
         }
 
         .letter-body p {
+          font-size: 1.05rem;
           margin-bottom: 12px;
-          font-size: 1.4rem;
-        }
-
-        .letter-footer {
-          margin-top: 30px;
-          padding-top: 20px;
         }
 
         .letter-footer p:first-child {
-          font-size: 1.9rem;
+          font-size: 1.4rem;
         }
 
         .letter-footer p:last-child {
-          font-size: 2.3rem;
+          font-size: 1.6rem;
         }
 
         .seal {
@@ -1099,7 +1100,7 @@
     </section>
 
     <!-- Section 5: Love Letter -->
-    <section id="" class="">
+    <section id="letter" class="section letter-section">
       <div class="container">
         <h2 class="section-title slide-up">My Side</h2>
         <div class="letter-box slide-up delay-1">

@@ -522,7 +522,7 @@
         transform: translateY(0);
       }
 
-      /* Letter Section */
+      /* Letter Section - Sacramento Font */
       .letter-section {
         background: linear-gradient(135deg, #fff9fb 0%, #fff0f5 100%);
         position: relative;
@@ -537,56 +537,67 @@
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
         padding: 40px;
         position: relative;
-        font-family: "Sacramento", cursive;
-        font-size: 1.4rem;
-        line-height: 1.8;
+        font-family: "Sacramento", cursive; /* CHANGED TO SACRAMENTO */
+        font-size: 1.6rem; /* Slightly larger for better readability */
+        line-height: 1.9;
         color: #5a3939;
         box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
       }
 
-      .letter-box::before {
-        content: "";
-        position: absolute;
-        top: -5px;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
-        background: linear-gradient(
-          45deg,
-          var(--primary),
-          var(--secondary),
-          var(--accent),
-          var(--primary)
-        );
-        z-index: -1;
-        border-radius: 15px;
-        filter: blur(10px);
-        opacity: 0.3;
+      /* Letter Header - Sacramento for elegant opening */
+      .letter-header {
+        text-align: left;
+        margin-bottom: 25px;
+        font-family: "Sacramento", cursive;
+        font-size: 2.8rem;
+        color: var(--secondary);
+        font-weight: 400;
+        letter-spacing: 1px;
       }
 
-      .letter-header,
+      .letter-header p {
+        margin: 0;
+      }
+
+      /* Letter Body - Sacramento for handwritten feel */
+      .letter-body {
+        font-family: "Sacramento", cursive;
+        font-size: 1.6rem;
+        line-height: 1.9;
+        color: #5a3939;
+        margin-bottom: 30px;
+      }
+
+      .letter-body p {
+        margin-bottom: 18px;
+        text-align: justify;
+      }
+
+      /* Letter Footer - Sacramento for signature */
       .letter-footer {
         text-align: right;
-        margin-top: 20px;
-        font-family: "Great Vibes", cursive;
-        font-size: 2.2rem;
-        color: var(--secondary);
+        margin-top: 40px;
+        padding-top: 25px;
+        border-top: 1px dashed #d81b60;
+        font-family: "Sacramento", cursive;
       }
 
-      .letter-footer {
-        margin-top: 40px;
-        padding-top: 20px;
-        border-top: 1px dashed #d81b60;
+      .letter-footer p:first-child {
+        font-size: 2.2rem;
+        color: var(--secondary);
+        margin: 0;
+        letter-spacing: 1px;
       }
 
       .letter-footer p:last-child {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         color: var(--primary);
         margin-top: 10px;
-        font-weight: bold;
+        font-weight: 400;
         letter-spacing: 2px;
       }
 
+      /* Wax Seal */
       .seal {
         position: absolute;
         bottom: -30px;
@@ -606,6 +617,125 @@
         z-index: 3;
         border: 3px solid white;
         animation: pulse 2s infinite;
+      }
+
+      /* Mobile Responsive - Phone Screens */
+      @media (max-width: 768px) {
+        .letter-box {
+          padding: 30px 25px;
+          margin: 30px auto;
+          font-size: 1.5rem;
+        }
+
+        .letter-header {
+          font-size: 2.4rem;
+          text-align: left;
+        }
+
+        .letter-body {
+          font-size: 1.5rem;
+          line-height: 1.8;
+        }
+
+        .letter-body p {
+          margin-bottom: 15px;
+          font-size: 1.5rem;
+        }
+
+        .letter-footer p:first-child {
+          font-size: 2rem;
+        }
+
+        .letter-footer p:last-child {
+          font-size: 2.5rem;
+        }
+
+        .seal {
+          width: 70px;
+          height: 70px;
+          bottom: -25px;
+          right: 30px;
+          font-size: 1.1rem;
+        }
+      }
+
+      /* Small Mobile - Very small screens */
+      @media (max-width: 480px) {
+        .letter-box {
+          padding: 25px 20px;
+          margin: 20px 15px;
+          font-size: 1.4rem;
+        }
+
+        .letter-header {
+          font-size: 2.2rem;
+        }
+
+        .letter-body {
+          font-size: 1.4rem;
+          line-height: 1.8;
+        }
+
+        .letter-body p {
+          margin-bottom: 12px;
+          font-size: 1.4rem;
+        }
+
+        .letter-footer {
+          margin-top: 30px;
+          padding-top: 20px;
+        }
+
+        .letter-footer p:first-child {
+          font-size: 1.9rem;
+        }
+
+        .letter-footer p:last-child {
+          font-size: 2.3rem;
+        }
+
+        .seal {
+          width: 60px;
+          height: 60px;
+          bottom: -20px;
+          right: 20px;
+          font-size: 1rem;
+        }
+      }
+
+      /* Extra Small Mobile */
+      @media (max-width: 360px) {
+        .letter-box {
+          padding: 20px 15px;
+          font-size: 1.35rem;
+        }
+
+        .letter-header {
+          font-size: 2rem;
+        }
+
+        .letter-body {
+          font-size: 1.35rem;
+        }
+
+        .letter-body p {
+          font-size: 1.35rem;
+          margin-bottom: 10px;
+        }
+
+        .letter-footer p:first-child {
+          font-size: 1.8rem;
+        }
+
+        .letter-footer p:last-child {
+          font-size: 2.2rem;
+        }
+
+        .seal {
+          width: 55px;
+          height: 55px;
+          font-size: 0.9rem;
+        }
       }
 
       /* Scroll Progress */
@@ -1099,7 +1229,7 @@
           </div>
           <div class="letter-footer">
             <p>imissyouuuu,</p>
-            <p><strong>keneth rada pogi haha</strong></p>
+            <p><strong>ken pogi</strong></p>
           </div>
           <div class="seal">❤</div>
         </div>

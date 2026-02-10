@@ -1525,3 +1525,55 @@ button:hover ~ .cursor-follower,
     transform: translateY(0);
   }
 }
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .special-button-section {
+    padding: 40px 20px;
+  }
+
+  .button-container {
+    max-width: 100%;
+  }
+
+  .note-message p {
+    font-size: 1.8rem;
+    padding: 15px 30px;
+    letter-spacing: 1px;
+  }
+
+  .special-heart-btn {
+    padding: 16px 40px;
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .special-heart-btn i {
+    margin: 0 5px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .special-button-section {
+    padding: 30px 15px;
+  }
+
+  .note-message p {
+    font-size: 1.5rem;
+    padding: 12px 20px;
+  }
+
+  .special-heart-btn {
+    padding: 14px 30px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    width: 95%;
+  }
+
+  .special-heart-btn i {
+    margin: 0 3px;
+    font-size: 16px;
+  }
+}

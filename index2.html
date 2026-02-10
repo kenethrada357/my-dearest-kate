@@ -198,7 +198,7 @@
 
       .flower {
         position: relative;
-        margin-bottom: 5vmin;
+        margin-bottom: 25vmin;
         z-index: 25;
         transform-style: preserve-3d;
         padding-bottom: 10vmin;
@@ -1580,7 +1580,7 @@
       .back-btn {
         background: none;
         border: none;
-        color: white;
+        color: white; /* Changed from black to white for visibility */
         font-size: 24px;
         cursor: pointer;
         padding: 10px;
@@ -1589,6 +1589,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        /* Added these for better visibility */
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        z-index: 1000;
+      }
+      .back-btn-container {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 10000; /* Increased from 100 to ensure it's above all other elements */
+      }
+      .back-btn {
+        color: #ff88a5 !important; /* A light pink that matches your theme */
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+        font-size: 28px !important;
+        transform: scale(1.2);
       }
     </style>
   </head>

@@ -963,6 +963,7 @@ button:hover ~ .cursor-follower,
   display: block;
 }
 
+/* Spotify instruction note */
 .spotify-note {
   margin-top: 25px;
   font-size: 1.1rem;
@@ -977,86 +978,56 @@ button:hover ~ .cursor-follower,
   border-left: 4px solid var(--secondary);
 }
 
+/* Heartfelt music message note - Normal font */
+.music-note {
+  margin-top: 30px;
+  font-family: "Montserrat", sans-serif; /* Changed to normal font */
+  font-size: 1.3rem;
+  color: #5a3939;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 245, 247, 0.7);
+  border-radius: 12px;
+  border: 1px solid #e8c7c7;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  position: relative;
+  font-style: italic; /* Not italic */
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .spotify-container iframe {
-    height: 320px;
+    height: 400px; /* Increased height */
   }
   .spotify-note {
     font-size: 1rem;
     padding: 12px;
   }
+  .music-note {
+    font-size: 1.2rem;
+    padding: 18px;
+    margin-top: 25px;
+  }
 }
 
 @media (max-width: 480px) {
   .spotify-container iframe {
-    height: 280px;
+    height: 450px; /* Increased height for mobile */
     border-radius: 10px;
   }
   .spotify-note {
     font-size: 0.95rem;
     padding: 10px;
   }
-}
-.music-note {
-  margin-top: 30px;
-  font-family: "Sacramento", cursive;
-  font-size: 1.8rem;
-  color: #5a3939;
-  max-width: 750px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.9;
-  text-align: center;
-  padding: 25px;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23fffaf0"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23f8e9e9" stroke-width="0.5"/></svg>')
-    center/cover;
-  border-radius: 15px;
-  border: 1px solid #e8c7c7;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  position: relative;
-}
-
-.music-note::before {
-  content: "❝";
-  position: absolute;
-  top: -20px;
-  left: 20px;
-  font-family: "Playfair Display", serif;
-  font-size: 4rem;
-  color: rgba(216, 27, 96, 0.2);
-  line-height: 1;
-}
-
-.music-note::after {
-  content: "❞";
-  position: absolute;
-  bottom: -25px;
-  right: 20px;
-  font-family: "Playfair Display", serif;
-  font-size: 4rem;
-  color: rgba(216, 27, 96, 0.2);
-  line-height: 1;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
   .music-note {
-    font-size: 1.5rem;
-    padding: 20px;
-    margin-top: 25px;
-  }
-}
-
-@media (max-width: 480px) {
-  .music-note {
-    font-size: 1.3rem;
-    padding: 18px 15px;
+    font-size: 1.1rem;
+    padding: 15px 12px;
     margin-top: 20px;
-  }
-  .music-note::before,
-  .music-note::after {
-    font-size: 3rem;
+    line-height: 1.7;
   }
 }
 /* Comments Section */

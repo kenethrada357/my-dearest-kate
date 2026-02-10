@@ -531,7 +531,6 @@
           commentElement.className = "comment-item";
           commentElement.innerHTML = `
       <div class="comment-header">
-        <div class="comment-author">Anonymous</div>
         <div class="comment-date">${formattedDate}</div>
       </div>
       <div class="comment-content" id="comment-content-${comment.id}">
@@ -614,7 +613,7 @@
 
           localStorage.setItem("comments", JSON.stringify(comments));
           loadComments();
-          showNotification("Comment updated successfully! ✏️");
+          showNotification("Comment updated successfully!");
         }
       }
 
@@ -629,7 +628,7 @@
 
         localStorage.setItem("comments", JSON.stringify(comments));
         loadComments();
-        showNotification("Comment deleted! 💔");
+        showNotification("Comment deleted!");
       }
 
       // Helper function to prevent XSS

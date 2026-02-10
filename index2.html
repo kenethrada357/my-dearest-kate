@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elegant Red Rose Bouquet</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --color-bg: linear-gradient(
+          to top,
+          #1a000d,
+          #250015,
+          #30001a,
+          #3a0020,
+          #450025
+        );
+        --color-stem: linear-gradient(
+          to top,
+          #123012,
+          #184018,
+          #1e501e,
+          #256025,
+          #2a702a
+        );
+        --color-leaf: linear-gradient(
+          to bottom right,
+          #153a15,
+          #1a451a,
+          #205020,
+          #255a25
+        );
+        --red-1: #ff2a4d;
+        --red-2: #ff3355;
+        --red-3: #ff3d5e;
+        --red-4: #ff4767;
+        --red-5: #ff5170;
+        --red-6: #ff5b79;
+        --red-7: #ff6582;
+        --red-8: #e62e4d;
+        --red-9: #d92a48;
+        --red-10: #cc2643;
+        --red-11: #b31a33;
+        --red-12: #99152a;
+        --red-13: #8a0a1a;
+        --red-center-1: #ff88a5;
+        --red-center-2: #ff99b0;
+        --red-center-3: #ffaac0;
+        --red-glow-1: rgba(255, 40, 80, 0.8);
+        --red-glow-2: rgba(255, 60, 100, 0.7);
+        --red-glow-3: rgba(255, 80, 120, 0.6);
+        --ribbon-dark: #a00025;
+        --ribbon-main: #e60033;
+        --ribbon-light: #ff3355;
+        --ribbon-shine: rgba(255, 255, 255, 0.4);
+      }
+
+      body {
+        background-image: var(--color-bg);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+        position: relative;
+        perspective: 1000vmin;
+        background-attachment: fixed;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 15% 25%,
+            rgba(255, 50, 90, 0.15) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 45% 15%,
+            rgba(255, 70, 110, 0.12) 0%,
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 75% 30%,
+            rgba(255, 90, 130, 0.1) 0%,
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 30% 60%,
+            rgba(255, 60, 100, 0.13) 0%,
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 65% 75%,
+            rgba(255, 80, 120, 0.11) 0%,
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at 20% 85%,
+            rgba(255, 40, 80, 0.09) 0%,
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at 85% 55%,
+            rgba(255, 100, 140, 0.08) 0%,
+            transparent 40%
+          );
+        z-index: -3;
+      }
+
+      body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 10% 10%,
+            rgba(255, 200, 220, 0.03) 0%,
+            transparent 15%
+          ),
+          radial-gradient(
+            circle at 90% 15%,
+            rgba(255, 180, 210, 0.03) 0%,
+            transparent 18%
+          ),
+          radial-gradient(
+            circle at 50% 5%,
+            rgba(255, 220, 240, 0.04) 0%,
+            transparent 20%
+          );
+        z-index: -2;
+        animation: pulse-glow 8s ease-in-out infinite;
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 0.6;
+        }
+      }
+
+      .title {
+        position: absolute;
+        top: 6vmin;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Georgia", serif;
+        font-size: 6.5vmin;
+        color: rgba(255, 220, 230, 0.95);
+        text-shadow: 0 0 12vmin var(--red-glow-1),
+          0 0 6vmin rgba(255, 255, 255, 0.6);
+        letter-spacing: 0.35vmin;
+        z-index: 100;
+        animation: title-float 6s ease-in-out infinite;
+        text-align: center;
+        width: 90%;
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.8vmin;
+      }
+
+      .title span {
+        display: block;
+        font-size: 3.8vmin;
+        margin-top: -0.8vmin;
+        color: rgba(255, 180, 200, 0.9);
+        letter-spacing: 0.3vmin;
+        font-weight: normal;
+        text-transform: none;
+      }
+
+      @keyframes title-float {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(-1.2vmin);
+        }
+      }
+
+      .flower {
+        position: relative;
+        margin-bottom: 5vmin;
+        z-index: 25;
+        transform-style: preserve-3d;
+        padding-bottom: 10vmin;
+      }
+
+      .petal-fall {
+        position: absolute;
+        bottom: 25vmin;
+        width: 100%;
+        height: 75vmin;
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      .flower-pp {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform-origin: bottom center;
+        animation: sway-complex 12s ease-in-out infinite;
+        transform-style: preserve-3d;
+        z-index: 20;
+      }
+
+      .flower-pp--1 {
+        left: 48%;
+        bottom: 0vmin;
+        animation-delay: 0s;
+        z-index: 35;
+      }
+      .flower-pp--2 {
+        left: 58%;
+        bottom: 0vmin;
+        transform: rotate(15deg);
+        animation-delay: -1.5s;
+        z-index: 38;
+      }
+      .flower-pp--3 {
+        left: 38%;
+        bottom: 0vmin;
+        transform: rotate(-18deg);
+        animation-delay: -3s;
+        z-index: 32;
+      }
+      .flower-pp--4 {
+        left: 68%;
+        bottom: 0vmin;
+        transform: rotate(28deg);
+        animation-delay: -4.5s;
+        z-index: 36;
+      }
+      .flower-pp--5 {
+        left: 28%;
+        bottom: 0vmin;
+        transform: rotate(-25deg);
+        animation-delay: -6s;
+        z-index: 30;
+      }
+      .flower-pp--6 {
+        left: 75%;
+        bottom: 0vmin;
+        transform: rotate(38deg);
+        animation-delay: -7.5s;
+        z-index: 34;
+      }
+      .flower-pp--7 {
+        left: 20%;
+        bottom: 0vmin;
+        transform: rotate(-12deg);
+        animation-delay: -9s;
+        z-index: 28;
+      }
+      .flower-pp--8 {
+        left: 82%;
+        bottom: 0vmin;
+        transform: rotate(45deg);
+        animation-delay: -10.5s;
+        z-index: 26;
+      }
+      .flower-pp--9 {
+        left: 42%;
+        bottom: 0vmin;
+        transform: rotate(8deg);
+        animation-delay: -2s;
+        z-index: 33;
+      }
+      .flower-pp--10 {
+        left: 62%;
+        bottom: 0vmin;
+        transform: rotate(22deg);
+        animation-delay: -5s;
+        z-index: 37;
+      }
+      .flower-pp--11 {
+        left: 32%;
+        bottom: 0vmin;
+        transform: rotate(-8deg);
+        animation-delay: -8s;
+        z-index: 31;
+      }
+      .flower-pp--12 {
+        left: 70%;
+        bottom: 0vmin;
+        transform: rotate(32deg);
+        animation-delay: -11s;
+        z-index: 29;
+      }
+
+      @keyframes sway-complex {
+        0%,
+        100% {
+          transform: rotate(0deg) rotateY(0deg);
+        }
+        8% {
+          transform: rotate(2deg) rotateY(1deg);
+        }
+        16% {
+          transform: rotate(-3deg) rotateY(-1deg);
+        }
+        24% {
+          transform: rotate(2.5deg) rotateY(1deg);
+        }
+        32% {
+          transform: rotate(-1.5deg) rotateY(-0.5deg);
+        }
+        40% {
+          transform: rotate(3deg) rotateY(1.5deg);
+        }
+        48% {
+          transform: rotate(-2deg) rotateY(-1deg);
+        }
+        56% {
+          transform: rotate(1.5deg) rotateY(0.5deg);
+        }
+        64% {
+          transform: rotate(-2.5deg) rotateY(-1deg);
+        }
+        72% {
+          transform: rotate(1deg) rotateY(0.5deg);
+        }
+        80% {
+          transform: rotate(-1.8deg) rotateY(-0.8deg);
+        }
+        88% {
+          transform: rotate(2.2deg) rotateY(1deg);
+        }
+        96% {
+          transform: rotate(-1deg) rotateY(-0.5deg);
+        }
+      }
+
+      .flower_l {
+        width: 3vmin;
+        height: 68vmin;
+        background-image: var(--color-stem);
+        border-radius: 5vmin;
+        position: relative;
+
+        transform-style: preserve-3d;
+      }
+
+      .flower-pp--3 .flower_l,
+      .flower-pp--5 .flower_l,
+      .flower-pp--7 .flower_l,
+      .flower-pp--11 .flower_l {
+        height: 75vmin;
+        animation: stem-sway-tall 14s ease-in-out infinite;
+      }
+
+      .flower-pp--1 .flower_l,
+      .flower-pp--4 .flower_l,
+      .flower-pp--6 .flower_l,
+      .flower-pp--9 .flower_l {
+        height: 62vmin;
+        animation: stem-sway-short 12s ease-in-out infinite;
+      }
+
+      .flower-pp--2 .flower_l,
+      .flower-pp--8 .flower_l,
+      .flower-pp--10 .flower_l,
+      .flower-pp--12 .flower_l {
+        height: 68vmin;
+        animation: stem-sway-medium 13s ease-in-out infinite;
+      }
+
+      @keyframes stem-sway-tall {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(-5deg);
+        }
+        50% {
+          transform: rotate(3deg);
+        }
+        75% {
+          transform: rotate(-2.5deg);
+        }
+      }
+
+      @keyframes stem-sway-medium {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(4deg);
+        }
+        50% {
+          transform: rotate(-2.5deg);
+        }
+        75% {
+          transform: rotate(2deg);
+        }
+      }
+
+      @keyframes stem-sway-short {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(-3.5deg);
+        }
+        50% {
+          transform: rotate(2.8deg);
+        }
+        75% {
+          transform: rotate(-1.8deg);
+        }
+      }
+
+      .flower_l::after,
+      .flower_l::before {
+        content: "";
+        position: absolute;
+        background: var(--color-leaf);
+        border-radius: 40% 60% 40% 60%;
+        transform-origin: center;
+      }
+
+      .flower_l::after {
+        top: 10vmin;
+        left: -4vmin;
+        width: 8vmin;
+        height: 4vmin;
+        transform: rotate(-28deg);
+      }
+
+      .flower_l::before {
+        top: 20vmin;
+        left: 4vmin;
+        width: 8vmin;
+        height: 4vmin;
+        transform: rotate(28deg);
+      }
+
+      .flower-pp--3 .flower_l::after,
+      .flower-pp--5 .flower_l::after,
+      .flower-pp--7 .flower_l::after,
+      .flower-pp--11 .flower_l::after {
+        top: 12vmin;
+        width: 9vmin;
+        height: 4.5vmin;
+      }
+
+      .flower-pp--3 .flower_l::before,
+      .flower-pp--5 .flower_l::before,
+      .flower-pp--7 .flower_l::before,
+      .flower-pp--11 .flower_l::before {
+        top: 24vmin;
+        width: 9vmin;
+        height: 4.5vmin;
+      }
+
+      .flower-pp--1 .flower_l::after,
+      .flower-pp--4 .flower_l::after,
+      .flower-pp--6 .flower_l::after,
+      .flower-pp--9 .flower_l::after {
+        top: 8vmin;
+        width: 7vmin;
+        height: 3.5vmin;
+      }
+
+      .flower-pp--1 .flower_l::before,
+      .flower-pp--4 .flower_l::before,
+      .flower-pp--6 .flower_l::before,
+      .flower-pp--9 .flower_l::before {
+        top: 16vmin;
+        width: 7vmin;
+        height: 3.5vmin;
+      }
+
+      .dew-drop {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        box-shadow: 0 0 1vmin rgba(255, 255, 255, 0.8),
+          inset -0.3vmin -0.3vmin 0.5vmin rgba(255, 255, 255, 0.6);
+        z-index: 50;
+        animation: dew-shimmer 3s ease-in-out infinite;
+      }
+
+      @keyframes dew-shimmer {
+        0%,
+        100% {
+          opacity: 0.9;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+      }
+
+      .f {
+        position: absolute;
+        top: -2vmin;
+        left: 50%;
+        transform: translateX(-50%) rotate(-10deg);
+        width: 2.5vmin;
+        height: 2.5vmin;
+        transform-style: preserve-3d;
+      }
+
+      .flower-pp--2 .f {
+        transform: translateX(-50%) rotate(12deg);
+      }
+      .flower-pp--3 .f {
+        transform: translate(-350%, -50%) rotate(-120deg);
+      }
+      .flower-pp--4 .f {
+        transform: translateX(-50%) rotate(22deg);
+      }
+      .flower-pp--5 .f {
+        transform: translate(-300%, -40%) rotate(-100deg);
+      }
+      .flower-pp--6 .f {
+        transform: translateX(-50%) rotate(28deg);
+      }
+      .flower-pp--7 .f {
+        transform: translate(-400%, -60%) rotate(-140deg);
+      }
+      .flower-pp--8 .f {
+        transform: translateX(-50%) rotate(35deg);
+      }
+      .flower-pp--9 .f {
+        transform: translateX(-50%) rotate(5deg);
+      }
+      .flower-pp--10 .f {
+        transform: translateX(-50%) rotate(18deg);
+      }
+      .flower-pp--11 .f {
+        transform: translate(-320%, -45%) rotate(-110deg);
+      }
+      .flower-pp--12 .f {
+        transform: translateX(-50%) rotate(25deg);
+      }
+
+      .leaf {
+        position: absolute;
+        left: 50%;
+        bottom: 2vmin;
+        transform: translateX(-50%);
+        width: 6.5vmin;
+        height: 17vmin;
+        clip-path: ellipse(50% 50% at 50% 50%);
+        transform-origin: center bottom;
+        animation: open-flower-complex 3s 1s backwards;
+        border-radius: 50%;
+        box-shadow: inset 0 0 4vmin rgba(255, 255, 255, 0.4),
+          0 0 6vmin var(--red-glow-2);
+        transform-style: preserve-3d;
+      }
+
+      .flower-pp--1 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-1),
+          var(--red-5),
+          var(--red-13) 95%
+        );
+      }
+      .flower-pp--2 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-2),
+          var(--red-6),
+          var(--red-13) 95%
+        );
+      }
+      .flower-pp--3 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-3),
+          var(--red-7),
+          var(--red-12) 95%
+        );
+      }
+      .flower-pp--4 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-4),
+          var(--red-6),
+          var(--red-11) 95%
+        );
+      }
+      .flower-pp--5 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-8),
+          var(--red-9),
+          var(--red-13) 95%
+        );
+      }
+      .flower-pp--6 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-5),
+          var(--red-8),
+          var(--red-12) 95%
+        );
+      }
+      .flower-pp--7 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-9),
+          var(--red-10),
+          var(--red-13) 95%
+        );
+      }
+      .flower-pp--8 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-6),
+          var(--red-9),
+          var(--red-11) 95%
+        );
+      }
+      .flower-pp--9 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-2),
+          var(--red-5),
+          var(--red-12) 95%
+        );
+      }
+      .flower-pp--10 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-3),
+          var(--red-7),
+          var(--red-13) 95%
+        );
+      }
+      .flower-pp--11 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-10),
+          var(--red-11),
+          var(--red-13) 95%
+        );
+      }
+      .flower-pp--12 .leaf {
+        background-image: linear-gradient(
+          to bottom,
+          var(--red-4),
+          var(--red-8),
+          var(--red-12) 95%
+        );
+      }
+
+      .leaf--1 {
+        width: 12.5vmin;
+        height: 15vmin;
+        bottom: 4.5vmin;
+        border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+        background-image: none;
+        animation: open-flower-center 1.8s 1s backwards;
+        box-shadow: inset 0 0 6vmin rgba(255, 255, 255, 0.6),
+          0 0 10vmin rgba(255, 140, 170, 0.9);
+        transform-style: preserve-3d;
+      }
+
+      .flower-pp--1 .leaf--1 {
+        background-color: var(--red-center-1);
+      }
+      .flower-pp--2 .leaf--1 {
+        background-color: var(--red-center-1);
+      }
+      .flower-pp--3 .leaf--1 {
+        background-color: var(--red-center-2);
+      }
+      .flower-pp--4 .leaf--1 {
+        background-color: var(--red-center-3);
+      }
+      .flower-pp--5 .leaf--1 {
+        background-color: var(--red-center-2);
+      }
+      .flower-pp--6 .leaf--1 {
+        background-color: var(--red-center-1);
+      }
+      .flower-pp--7 .leaf--1 {
+        background-color: var(--red-center-3);
+      }
+      .flower-pp--8 .leaf--1 {
+        background-color: var(--red-center-2);
+      }
+      .flower-pp--9 .leaf--1 {
+        background-color: var(--red-center-1);
+      }
+      .flower-pp--10 .leaf--1 {
+        background-color: var(--red-center-2);
+      }
+      .flower-pp--11 .leaf--1 {
+        background-color: var(--red-center-3);
+      }
+      .flower-pp--12 .leaf--1 {
+        background-color: var(--red-center-1);
+      }
+
+      .leaf--2 {
+        transform: translateX(-50%) rotate(-40deg);
+      }
+      .leaf--3 {
+        transform: translateX(-50%) rotate(-60deg);
+      }
+      .leaf--4 {
+        transform: translateX(-50%) rotate(-80deg);
+      }
+      .leaf--5 {
+        transform: translateX(-50%) rotate(40deg);
+      }
+      .leaf--6 {
+        transform: translateX(-50%) rotate(60deg);
+      }
+      .leaf--7 {
+        transform: translateX(-50%) rotate(80deg);
+      }
+
+      .leaf--8 {
+        width: 16vmin;
+        height: 14vmin;
+        bottom: 9vmin;
+        left: -20%;
+        border-radius: 13vmin 3vmin 13vmin 3vmin;
+        transform: rotate(-55deg);
+        box-shadow: inset 0 0 6vmin rgba(255, 255, 255, 0.5),
+          0 0 15vmin var(--red-glow-1);
+      }
+
+      .flower-pp--1 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-1),
+          var(--red-8),
+          var(--red-13)
+        );
+      }
+      .flower-pp--2 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-2),
+          var(--red-9),
+          var(--red-13)
+        );
+      }
+      .flower-pp--3 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-3),
+          var(--red-10),
+          var(--red-12)
+        );
+      }
+      .flower-pp--4 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-4),
+          var(--red-11),
+          var(--red-12)
+        );
+      }
+      .flower-pp--5 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-8),
+          var(--red-11),
+          var(--red-13)
+        );
+      }
+      .flower-pp--6 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-5),
+          var(--red-10),
+          var(--red-12)
+        );
+      }
+      .flower-pp--7 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-9),
+          var(--red-12),
+          var(--red-13)
+        );
+      }
+      .flower-pp--8 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-6),
+          var(--red-11),
+          var(--red-12)
+        );
+      }
+      .flower-pp--9 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-2),
+          var(--red-9),
+          var(--red-13)
+        );
+      }
+      .flower-pp--10 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-3),
+          var(--red-10),
+          var(--red-13)
+        );
+      }
+      .flower-pp--11 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-10),
+          var(--red-12),
+          var(--red-13)
+        );
+      }
+      .flower-pp--12 .leaf--8 {
+        background-image: linear-gradient(
+          to left bottom,
+          var(--red-4),
+          var(--red-11),
+          var(--red-12)
+        );
+      }
+
+      .flower__fall-down--1 {
+        animation: petal-fall-1 14s 5s linear forwards;
+      }
+      .flower__fall-down--2 {
+        animation: petal-fall-2 12s 5.5s linear forwards;
+      }
+      .flower__fall-down--3 {
+        animation: petal-fall-3 15s 6s linear forwards;
+      }
+      .flower__fall-down--4 {
+        animation: petal-fall-4 11s 6.5s linear forwards;
+      }
+      .flower__fall-down--5 {
+        animation: petal-fall-5 16s 7s linear forwards;
+      }
+      .flower__fall-down--6 {
+        animation: petal-fall-6 13s 7.5s linear forwards;
+      }
+      .flower__fall-down--7 {
+        animation: petal-fall-7 14s 8s linear forwards;
+      }
+      .flower__fall-down--8 {
+        animation: petal-fall-8 12s 8.5s linear forwards;
+      }
+      .flower__fall-down--9 {
+        animation: petal-fall-9 15s 9s linear forwards;
+      }
+      .flower__fall-down--10 {
+        animation: petal-fall-10 13s 9.5s linear forwards;
+      }
+      .flower__fall-down--11 {
+        animation: petal-fall-11 16s 10s linear forwards;
+      }
+      .flower__fall-down--12 {
+        animation: petal-fall-12 14s 10.5s linear forwards;
+      }
+
+      @keyframes open-flower-complex {
+        0% {
+          transform: translateX(-50%) scale(0.05) rotate(50deg);
+          opacity: 0.1;
+          filter: blur(1vmin);
+        }
+        20% {
+          transform: translateX(-50%) scale(0.4) rotate(30deg);
+          opacity: 0.4;
+          filter: blur(0.5vmin);
+        }
+        40% {
+          transform: translateX(-50%) scale(0.7) rotate(15deg);
+          opacity: 0.7;
+          filter: blur(0.2vmin);
+        }
+        60% {
+          transform: translateX(-50%) scale(0.9) rotate(6deg);
+          opacity: 0.9;
+        }
+        80% {
+          transform: translateX(-50%) scale(1.05) rotate(-2deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-50%) scale(1) rotate(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes open-flower-center {
+        0% {
+          opacity: 0;
+          transform: translateX(-50%) scale(0.02);
+          filter: blur(1vmin);
+        }
+        30% {
+          opacity: 0.5;
+          transform: translateX(-50%) scale(0.7);
+          filter: blur(0.3vmin);
+        }
+        60% {
+          opacity: 0.9;
+          transform: translateX(-50%) scale(1.1);
+        }
+        80% {
+          opacity: 1;
+          transform: translateX(-50%) scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(-50%) scale(1);
+        }
+      }
+
+      @keyframes petal-fall-1 {
+        0% {
+          transform: rotate(-55deg) scale(1);
+          opacity: 1;
+          filter: blur(0);
+        }
+        15% {
+          transform: rotate(-70deg) translate(5vmin, 12vmin) scale(0.98);
+          opacity: 0.95;
+        }
+        30% {
+          transform: rotate(-100deg) translate(15vmin, 28vmin) scale(0.95);
+          opacity: 0.9;
+        }
+        45% {
+          transform: rotate(-140deg) translate(28vmin, 50vmin) scale(0.9);
+          opacity: 0.85;
+        }
+        60% {
+          transform: rotate(-180deg) translate(42vmin, 75vmin) scale(0.85);
+          opacity: 0.75;
+          filter: blur(0.2vmin);
+        }
+        75% {
+          transform: rotate(-220deg) translate(58vmin, 105vmin) scale(0.75);
+          opacity: 0.6;
+          filter: blur(0.5vmin);
+        }
+        90% {
+          transform: rotate(-260deg) translate(75vmin, 140vmin) scale(0.6);
+          opacity: 0.3;
+          filter: blur(1vmin);
+        }
+        100% {
+          transform: rotate(-300deg) translate(95vmin, 180vmin) scale(0.3);
+          opacity: 0;
+          filter: blur(2vmin);
+        }
+      }
+
+      @keyframes petal-fall-2 {
+        0% {
+          transform: rotate(-55deg) scale(1);
+          opacity: 1;
+        }
+        20% {
+          transform: rotateX(-100deg) translate(10vmin, 18vmin) scale(0.97);
+        }
+        40% {
+          transform: rotateX(-140deg) translate(25vmin, 42vmin) scale(0.93);
+          opacity: 0.9;
+        }
+        60% {
+          transform: rotate(50deg) translate(45vmin, 72vmin) scale(0.88);
+          opacity: 0.8;
+        }
+        80% {
+          transform: translate(68vmin, 105vmin) rotate(220deg) scale(0.75);
+          opacity: 0.6;
+        }
+        100% {
+          transform: translate(92vmin, 145vmin) rotate(280deg) scale(0.3);
+          opacity: 0;
+        }
+      }
+
+      @keyframes petal-fall-3 {
+        0% {
+          transform: rotate(-50deg) scale(1);
+          opacity: 1;
+        }
+        15% {
+          bottom: 1vmin;
+          transform: rotateX(-100deg) scale(0.98);
+        }
+        30% {
+          transform: translate(-25vmin, 15vmin) rotate(65deg) scale(0.95);
+        }
+        45% {
+          transform: translate(-45vmin, 35vmin) rotate(135deg) scale(0.9);
+          opacity: 0.9;
+        }
+        60% {
+          transform: translate(-65vmin, 60vmin) rotate(185deg) scale(0.85);
+          opacity: 0.8;
+        }
+        75% {
+          transform: translate(-82vmin, 90vmin) rotate(220deg) scale(0.75);
+          opacity: 0.65;
+        }
+        90% {
+          transform-origin: center;
+          transform: translate(-95vmin, 125vmin) rotateY(-90deg) rotateX(45deg)
+            scale(0.6);
+          opacity: 0.4;
+        }
+        100% {
+          transform-origin: center;
+          transform: translate(-110vmin, 165vmin) rotateY(-95deg) rotateX(50deg)
+            scale(0.3);
+          opacity: 0;
+        }
+      }
+
+      @keyframes petal-fall-4 {
+        0% {
+          transform: rotate(-52deg) scale(1);
+          opacity: 1;
+        }
+        25% {
+          transform: rotate(-75deg) translate(8vmin, 18vmin) scale(0.97);
+        }
+        50% {
+          transform: rotate(-125deg) translate(22vmin, 40vmin) scale(0.93);
+          opacity: 0.9;
+        }
+        75% {
+          transform: rotate(-185deg) translate(40vmin, 70vmin) scale(0.88);
+          opacity: 0.75;
+        }
+        100% {
+          transform: rotate(-235deg) translate(62vmin, 110vmin) scale(0.4);
+          opacity: 0;
+        }
+      }
+
+      @keyframes petal-fall-5 {
+        0% {
+          transform: rotate(-55deg) scale(1);
+          opacity: 1;
+        }
+        15% {
+          transform: rotateX(-95deg) translate(-8vmin, 15vmin) scale(0.98);
+        }
+        30% {
+          transform: translate(-22vmin, 32vmin) rotate(70deg) scale(0.95);
+        }
+        45% {
+          transform: translate(-42vmin, 58vmin) rotate(140deg) scale(0.9);
+          opacity: 0.85;
+        }
+        60% {
+          transform: translate(-62vmin, 90vmin) rotate(190deg) scale(0.85);
+          opacity: 0.75;
+        }
+        75% {
+          transform: translate(-80vmin, 125vmin) rotate(230deg) scale(0.75);
+          opacity: 0.6;
+        }
+        90% {
+          transform-origin: center;
+          transform: translate(-95vmin, 160vmin) rotateY(-85deg) rotateX(40deg)
+            scale(0.6);
+          opacity: 0.4;
+        }
+        100% {
+          transform-origin: center;
+          transform: translate(-110vmin, 200vmin) rotateY(-90deg) rotateX(45deg)
+            scale(0.3);
+          opacity: 0;
+        }
+      }
+
+      @keyframes petal-fall-6 {
+        0% {
+          transform: rotate(-53deg) scale(1);
+          opacity: 1;
+        }
+        25% {
+          transform: rotate(-72deg) translate(10vmin, 20vmin) scale(0.97);
+        }
+        50% {
+          transform: rotate(-120deg) translate(22vmin, 45vmin) scale(0.93);
+          opacity: 0.9;
+        }
+        75% {
+          transform: rotate(-175deg) translate(38vmin, 78vmin) scale(0.88);
+          opacity: 0.75;
+        }
+        100% {
+          transform: rotate(-225deg) translate(58vmin, 120vmin) scale(0.4);
+          opacity: 0;
+        }
+      }
+
+      @keyframes petal-fall-7 {
+        0% {
+          transform: rotate(-56deg) scale(1);
+          opacity: 1;
+        }
+        15% {
+          bottom: 1vmin;
+          transform: rotateX(-95deg) scale(0.98);
+        }
+        30% {
+          transform: translate(-22vmin, 12vmin) rotate(55deg) scale(0.95);
+        }
+        45% {
+          transform: translate(-40vmin, 32vmin) rotate(120deg) scale(0.9);
+          opacity: 0.85;
+        }
+        60% {
+          transform: translate(-58vmin, 58vmin) rotate(170deg) scale(0.85);
+          opacity: 0.75;
+        }
+        75% {
+          transform: translate(-72vmin, 88vmin) rotate(210deg) scale(0.75);
+          opacity: 0.6;
+        }
+        90% {
+          transform-origin: center;
+          transform: translate(-85vmin, 120vmin) rotateY(-85deg) rotateX(40deg)
+            scale(0.6);
+          opacity: 0.4;
+        }
+        100% {
+          transform-origin: center;
+          transform: translate(-98vmin, 155vmin) rotateY(-90deg) rotateX(45deg)
+            scale(0.3);
+          opacity: 0;
+        }
+      }
+
+      @keyframes petal-fall-8 {
+        0% {
+          transform: rotate(-54deg) scale(1);
+          opacity: 1;
+        }
+        25% {
+          transform: rotate(-75deg) translate(7vmin, 16vmin) scale(0.97);
+        }
+        50% {
+          transform: rotate(-130deg) translate(18vmin, 38vmin) scale(0.93);
+          opacity: 0.9;
+        }
+        75% {
+          transform: rotate(-180deg) translate(32vmin, 68vmin) scale(0.88);
+          opacity: 0.75;
+        }
+        100% {
+          transform: rotate(-225deg) translate(50vmin, 105vmin) scale(0.4);
+          opacity: 0;
+        }
+      }
+
+      @keyframes petal-fall-9 {
+        0% {
+          transform: rotate(-55deg) scale(1);
+          opacity: 1;
+        }
+        15% {
+          transform: rotate(-68deg) translate(6vmin, 14vmin) scale(0.98);
+        }
+        30% {
+          transform: rotate(-105deg) translate(18vmin, 32vmin) scale(0.95);
+          opacity: 0.9;
+        }
+        45% {
+          transform: rotate(-145deg) translate(32vmin, 58vmin) scale(0.9);
+          opacity: 0.85;
+        }
+        60% {
+          transform: rotate(-185deg) translate(48vmin, 88vmin) scale(0.85);
+          opacity: 0.75;
+        }
+        75% {
+          transform: rotate(-225deg) translate(65vmin, 125vmin) scale(0.75);
+          opacity: 0.6;
+        }
+        90% {
+          transform: rotate(-265deg) translate(82vmin, 165vmin) scale(0.6);
+          opacity: 0.4;
+        }
+        100% {
+          transform: rotate(-305deg) translate(100vmin, 210vmin) scale(0.3);
+          opacity: 0;
+        }
+      }
+
+      @keyframes petal-fall-10 {
+        0% {
+          transform: rotate(-55deg) scale(1);
+          opacity: 1;
+        }
+        20% {
+          transform: rotateX(-105deg) translate(12vmin, 22vmin) scale(0.97);
+        }
+        40% {
+          transform: rotateX(-145deg) translate(28vmin, 48vmin) scale(0.93);
+          opacity: 0.9;
+        }
+        60% {
+          transform: rotate(55deg) translate(50vmin, 82vmin) scale(0.88);
+          opacity: 0.8;
+        }
+        80% {
+          transform: translate(75vmin, 120vmin) rotate(225deg) scale(0.75);
+          opacity: 0.6;
+        }
+        100% {
+          transform: translate(100vmin, 165vmin) rotate(285deg) scale(0.3);
+          opacity: 0;
+        }
+      }
+
+      @keyframes petal-fall-11 {
+        0% {
+          transform: rotate(-50deg) scale(1);
+          opacity: 1;
+        }
+        15% {
+          bottom: 1vmin;
+          transform: rotateX(-105deg) scale(0.98);
+        }
+        30% {
+          transform: translate(-28vmin, 18vmin) rotate(70deg) scale(0.95);
+        }
+        45% {
+          transform: translate(-50vmin, 42vmin) rotate(140deg) scale(0.9);
+          opacity: 0.85;
+        }
+        60% {
+          transform: translate(-72vmin, 72vmin) rotate(190deg) scale(0.85);
+          opacity: 0.75;
+        }
+        75% {
+          transform: translate(-90vmin, 108vmin) rotate(230deg) scale(0.75);
+          opacity: 0.6;
+        }
+        90% {
+          transform-origin: center;
+          transform: translate(-105vmin, 145vmin) rotateY(-90deg) rotateX(45deg)
+            scale(0.6);
+          opacity: 0.4;
+        }
+        100% {
+          transform-origin: center;
+          transform: translate(-120vmin, 185vmin) rotateY(-95deg) rotateX(50deg)
+            scale(0.3);
+          opacity: 0;
+        }
+      }
+
+      @keyframes petal-fall-12 {
+        0% {
+          transform: rotate(-52deg) scale(1);
+          opacity: 1;
+        }
+        25% {
+          transform: rotate(-78deg) translate(9vmin, 20vmin) scale(0.97);
+        }
+        50% {
+          transform: rotate(-130deg) translate(24vmin, 45vmin) scale(0.93);
+          opacity: 0.9;
+        }
+        75% {
+          transform: rotate(-190deg) translate(42vmin, 78vmin) scale(0.88);
+          opacity: 0.75;
+        }
+        100% {
+          transform: rotate(-240deg) translate(65vmin, 120vmin) scale(0.4);
+          opacity: 0;
+        }
+      }
+
+      .butterfly {
+        position: absolute;
+        width: 6vmin;
+        height: 4vmin;
+        background: linear-gradient(
+          to right,
+          var(--red-1),
+          var(--red-3),
+          var(--red-1)
+        );
+        border-radius: 50% 50% 0 50%;
+        box-shadow: 0 0 3vmin var(--red-glow-1);
+        transform-origin: center center;
+        z-index: 45;
+        animation: butterfly-fly 25s linear infinite;
+      }
+
+      .butterfly::before,
+      .butterfly::after {
+        content: "";
+        position: absolute;
+        width: 3vmin;
+        height: 3vmin;
+        background: inherit;
+        border-radius: 50%;
+      }
+
+      .butterfly::before {
+        left: -2.5vmin;
+        top: -1vmin;
+        box-shadow: 1vmin 1vmin 1vmin rgba(255, 255, 255, 0.5);
+      }
+
+      .butterfly::after {
+        right: -2.5vmin;
+        top: -1vmin;
+        box-shadow: -1vmin 1vmin 1vmin rgba(255, 255, 255, 0.5);
+      }
+
+      .butterfly:nth-child(2) {
+        width: 5vmin;
+        height: 3.5vmin;
+        background: linear-gradient(
+          to right,
+          var(--red-3),
+          var(--red-5),
+          var(--red-3)
+        );
+        animation-delay: -5s;
+        animation-duration: 28s;
+      }
+
+      .butterfly:nth-child(3) {
+        width: 7vmin;
+        height: 4.5vmin;
+        background: linear-gradient(
+          to right,
+          var(--red-2),
+          var(--red-4),
+          var(--red-2)
+        );
+        animation-delay: -10s;
+        animation-duration: 30s;
+      }
+
+      @keyframes butterfly-fly {
+        0% {
+          transform: translate(0, 0) rotate(0deg) scale(0.8);
+          opacity: 0;
+        }
+        5% {
+          opacity: 1;
+        }
+        25% {
+          transform: translate(20vmin, -30vmin) rotate(45deg) scale(1);
+        }
+        45% {
+          transform: translate(40vmin, -60vmin) rotate(90deg) scale(0.9);
+        }
+        65% {
+          transform: translate(20vmin, -90vmin) rotate(135deg) scale(1.1);
+        }
+        85% {
+          transform: translate(-10vmin, -120vmin) rotate(180deg) scale(0.95);
+        }
+        95% {
+          opacity: 1;
+        }
+        100% {
+          transform: translate(-30vmin, -150vmin) rotate(225deg) scale(0.8);
+          opacity: 0;
+        }
+      }
+
+      .particle {
+        position: absolute;
+        background: rgba(255, 100, 150, 0.8);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 40;
+        animation: float-particle-complex 25s linear infinite;
+        box-shadow: 0 0 1.5vmin rgba(255, 220, 240, 0.95);
+        transform-origin: center;
+      }
+
+      @keyframes float-particle-complex {
+        0% {
+          transform: translate(0, 0) scale(0) rotate(0deg);
+          opacity: 1;
+        }
+        20% {
+          opacity: 0.95;
+        }
+        40% {
+          opacity: 0.85;
+        }
+        60% {
+          opacity: 0.7;
+        }
+        80% {
+          opacity: 0.4;
+        }
+        100% {
+          transform: translate(var(--tx), var(--ty)) scale(1)
+            rotate(var(--rotate));
+          opacity: 0;
+        }
+      }
+
+      .sparkle {
+        position: absolute;
+        width: 1vmin;
+        height: 1vmin;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        box-shadow: 0 0 2vmin rgba(255, 200, 220, 0.9);
+        z-index: 50;
+        animation: sparkle-twinkle 4s ease-in-out infinite;
+      }
+
+      @keyframes sparkle-twinkle {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(0.5);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      .heart {
+        position: absolute;
+        width: 4vmin;
+        height: 3vmin;
+        background: var(--red-1);
+        transform: rotate(45deg) scale(0);
+        border-radius: 50% 50% 0 50%;
+        box-shadow: 0 0 5vmin var(--red-glow-1);
+        z-index: 48;
+        animation: heart-float 8s ease-in-out infinite;
+        opacity: 0;
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: 50%;
+      }
+
+      .heart::before {
+        top: -50%;
+        left: 0;
+      }
+
+      .heart::after {
+        top: 0;
+        left: -50%;
+      }
+
+      @keyframes heart-float {
+        0% {
+          transform: rotate(45deg) scale(0) translate(0, 0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        30% {
+          transform: rotate(45deg) scale(1) translate(10vmin, -20vmin);
+        }
+        50% {
+          transform: rotate(45deg) scale(1.1) translate(20vmin, -40vmin);
+        }
+        70% {
+          transform: rotate(45deg) scale(0.9) translate(30vmin, -60vmin);
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: rotate(45deg) scale(0) translate(40vmin, -80vmin);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .title {
+          font-size: 4.5vmin;
+          top: 4vmin;
+        }
+        .title span {
+          font-size: 2.8vmin;
+        }
+        .ribbon {
+          width: 28vmin;
+          bottom: 25vmin;
+        }
+        .ribbon-end {
+          width: 8vmin;
+          height: 20vmin;
+        }
+        .ribbon-end.left {
+          left: 30%;
+        }
+        .ribbon-end.right {
+          right: 30%;
+        }
+        .flower {
+          margin-bottom: 12vmin;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .title {
+          font-size: 3.8vmin;
+          letter-spacing: 0.2vmin;
+        }
+        .title span {
+          font-size: 2.4vmin;
+        }
+        .ribbon {
+          width: 24vmin;
+          height: 5vmin;
+          bottom: 22vmin;
+        }
+        .ribbon-knot {
+          width: 6vmin;
+          height: 6vmin;
+          bottom: 28vmin;
+        }
+        .ribbon-end {
+          width: 7vmin;
+          height: 18vmin;
+          bottom: 18vmin;
+        }
+        .flower-pp {
+          transform: scale(0.9);
+        }
+      }
+      .back-btn-container {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+      }
+
+      .back-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back Button -->
+    <div class="back-btn-container">
+      <button class="back-btn" onclick="window.location.href='index.html'">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+    </div>
+    <h1 class="title"></h1>
+
+    <div class="flower">
+      <!-- 12 Beautiful Flowers -->
+      <div class="flower-pp flower-pp--1">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--1"></div>
+        </div>
+      </div>
+
+      <div class="flower-pp flower-pp--2">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--2"></div>
+        </div>
+      </div>
+
+      <div class="flower-pp flower-pp--3">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--3"></div>
+        </div>
+      </div>
+
+      <div class="flower-pp flower-pp--4">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--4"></div>
+        </div>
+      </div>
+
+      <div class="flower-pp flower-pp--5">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--5"></div>
+        </div>
+      </div>
+
+      <div class="flower-pp flower-pp--6">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--6"></div>
+        </div>
+      </div>
+
+      <div class="flower-pp flower-pp--7">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--7"></div>
+        </div>
+      </div>
+
+      <div class="flower-pp flower-pp--8">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--8"></div>
+        </div>
+      </div>
+
+      <div class="flower-pp flower-pp--9">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--9"></div>
+        </div>
+      </div>
+
+      <div class="flower-pp flower-pp--10">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--10"></div>
+        </div>
+      </div>
+
+      <div class="flower-pp flower-pp--11">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--11"></div>
+        </div>
+      </div>
+
+      <div class="flower-pp flower-pp--12">
+        <div class="flower_l"></div>
+        <div class="f">
+          <div class="leaf leaf--1"></div>
+          <div class="leaf leaf--2"></div>
+          <div class="leaf leaf--3"></div>
+          <div class="leaf leaf--4"></div>
+          <div class="leaf leaf--5"></div>
+          <div class="leaf leaf--6"></div>
+          <div class="leaf leaf--7"></div>
+          <div class="leaf leaf--8 flower__fall-down--12"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Create dew drops on petals
+      function createDewDrops() {
+        const petals = document.querySelectorAll(".leaf");
+        petals.forEach((petal) => {
+          const dropCount = Math.floor(Math.random() * 3) + 1;
+          for (let i = 0; i < dropCount; i++) {
+            const drop = document.createElement("div");
+            drop.classList.add("dew-drop");
+            const size = Math.random() * 0.8 + 0.4;
+            drop.style.width = `${size}vmin`;
+            drop.style.height = `${size}vmin`;
+            drop.style.left = `${Math.random() * 80 + 10}%`;
+            drop.style.top = `${Math.random() * 60 + 20}%`;
+            drop.style.animationDelay = `${Math.random() * 3}s`;
+            petal.appendChild(drop);
+          }
+        });
+      }
+
+      // Create floating particles
+      function createParticles() {
+        const container = document.querySelector(".flower");
+        const particleCount = 150;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          const size = Math.random() * 1.5 + 0.4;
+          particle.style.width = `${size}vmin`;
+          particle.style.height = `${size}vmin`;
+
+          const posX = Math.random() * 100 - 50;
+          const posY = Math.random() * 40 + 10;
+
+          const tx = (Math.random() - 0.5) * 150;
+          const ty = Math.random() * 150 + 70;
+          const rotate = Math.random() * 360;
+
+          particle.style.left = `calc(50% + ${posX}vmin)`;
+          particle.style.bottom = `${posY}vmin`;
+          particle.style.setProperty("--tx", `${tx}vmin`);
+          particle.style.setProperty("--ty", `${ty}vmin`);
+          particle.style.setProperty("--rotate", `${rotate}deg`);
+
+          particle.style.animationDelay = `${Math.random() * 25}s`;
+          particle.style.animationDuration = `${Math.random() * 15 + 20}s`;
+
+          const hue = Math.random() * 40 + 340;
+          const saturation = Math.random() * 30 + 70;
+          const lightness = Math.random() * 25 + 65;
+          particle.style.background = `hsla(${hue}, ${saturation}%, ${lightness}%, 0.85)`;
+
+          container.appendChild(particle);
+        }
+      }
+
+      // Create sparkles
+      function createSparkles() {
+        const container = document.querySelector(".flower");
+        const sparkleCount = 60;
+
+        for (let i = 0; i < sparkleCount; i++) {
+          const sparkle = document.createElement("div");
+          sparkle.classList.add("sparkle");
+
+          sparkle.style.left = `${Math.random() * 100}%`;
+          sparkle.style.bottom = `${Math.random() * 80 + 10}vmin`;
+          sparkle.style.animationDelay = `${Math.random() * 4}s`;
+          sparkle.style.animationDuration = `${Math.random() * 2 + 3}s`;
+
+          container.appendChild(sparkle);
+        }
+      }
+
+      // Create butterflies
+      function createButterflies() {
+        const container = document.querySelector(".flower");
+        const butterflyCount = 3;
+
+        for (let i = 0; i < butterflyCount; i++) {
+          const butterfly = document.createElement("div");
+          butterfly.classList.add("butterfly");
+          butterfly.style.left = `${Math.random() * 30 + 35}%`;
+          butterfly.style.bottom = `${Math.random() * 40 + 30}vmin`;
+          container.appendChild(butterfly);
+        }
+      }
+
+      // Create falling petals effect
+      function createFallingPetals() {
+        const petalContainer = document.querySelector(".petal-fall");
+        const petalCount = 40;
+
+        for (let i = 0; i < petalCount; i++) {
+          const petal = document.createElement("div");
+          petal.style.position = "absolute";
+          petal.style.width = `${Math.random() * 2 + 1}vmin`;
+          petal.style.height = `${Math.random() * 3 + 2}vmin`;
+          petal.style.background = `hsl(${Math.random() * 30 + 345}, 70%, 60%)`;
+          petal.style.borderRadius = "50% 50% 40% 60% / 60% 60% 40% 40%";
+          petal.style.left = `${Math.random() * 100}%`;
+          petal.style.top = `${Math.random() * 100}%`;
+          petal.style.opacity = "0.8";
+          petal.style.boxShadow = "0 0 2vmin rgba(255, 100, 150, 0.7)";
+
+          // Random animation duration and delay
+          const duration = Math.random() * 10 + 8;
+          const delay = Math.random() * 5;
+
+          petal.style.animation = `fall-${i} ${duration}s ${delay}s linear infinite`;
+
+          // Create unique keyframes for each petal
+          const style = document.createElement("style");
+          const rotation = Math.random() * 720 - 360;
+          const translateX = Math.random() * 40 - 20;
+          const translateY = Math.random() * 20 + 80;
+
+          style.innerHTML = `
+            @keyframes fall-${i} {
+              0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.8;
+              }
+              25% {
+                opacity: 0.9;
+              }
+              75% {
+                opacity: 0.85;
+              }
+              100% {
+                transform: translate(${translateX}vmin, ${translateY}vmin) rotate(${rotation}deg);
+                opacity: 0;
+              }
+            }
+          `;
+          document.head.appendChild(style);
+
+          petalContainer.appendChild(petal);
+        }
+      }
+
+      // Initialize all effects
+      window.addEventListener("load", () => {
+        createDewDrops();
+        createParticles();
+        createSparkles();
+        createButterflies();
+        createHearts();
+        createFallingPetals();
+
+        // Add mouse move effect for interactivity
+        document.addEventListener("mousemove", (e) => {
+          const flowers = document.querySelectorAll(".flower-pp");
+          const mouseX = e.clientX / window.innerWidth;
+          const mouseY = e.clientY / window.innerHeight;
+
+          flowers.forEach((flower, index) => {
+            // Subtle movement based on mouse position
+            const rotateX = (mouseY - 0.5) * 8;
+            const rotateY = (mouseX - 0.5) * 8;
+            flower.style.transform = `rotate(${rotateY}deg) rotateY(${rotateX}deg)`;
+          });
+
+          // Ribbon movement follows mouse more gently
+          const ribbon = document.querySelector(".ribbon");
+          if (ribbon) {
+            ribbon.style.transform = `translateX(calc(-50% + ${
+              (mouseX - 0.5) * 2
+            }vmin)) rotate(${(mouseX - 0.5) * 3}deg)`;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

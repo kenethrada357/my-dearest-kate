@@ -131,7 +131,7 @@ body::before {
   align-items: center;
   justify-content: center;
   position: relative;
-  background: url("images/9.jpg") no-repeat center center fixed;
+  background: url("images/9.jpg") center center/cover no-repeat fixed;
   background-size: cover;
   text-align: center;
   color: white;

@@ -2,37 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Login</title>
-
-    <!-- Firebase SDK -->
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-      import {
-        getAuth,
-        signInWithEmailAndPassword,
-      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyDU-YmdVWIDDiQq827hlOAXZyPW2xWeXGk",
-        authDomain: "my-login-project-f46c0.firebaseapp.com",
-        projectId: "my-login-project-f46c0",
-        storageBucket: "my-login-project-f46c0.firebasestorage.app",
-        messagingSenderId: "543180001053",
-        appId: "1:543180001053:web:e07b86beb95cdf954bdbf4",
-        measurementId: "G-41Q2E8K05G",
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-
-      // Make auth available globally
-      window.auth = auth;
-    </script>
-
     <style>
       * {
         margin: 0;
@@ -42,139 +16,277 @@
 
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: white;
         min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 20px;
+        padding: 15px;
+        margin: 0;
       }
 
       .login-container {
         background: white;
-        padding: 40px;
-        border-radius: 15px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        padding: 30px 25px;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         width: 100%;
         max-width: 420px;
+        border: 1px solid #eaeaea;
+        margin: 15px;
       }
 
       .login-header {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
       }
 
       .login-header h1 {
-        color: #333;
-        font-size: 28px;
-        margin-bottom: 10px;
+        color: #d81b60;
+        font-size: 26px;
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .login-logo {
+        height: 70px;
+        vertical-align: middle;
+        border-radius: 8px;
       }
 
       .login-header p {
         color: #666;
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.4;
+        margin-top: 12px;
       }
 
       .form-group {
-        margin-bottom: 20px;
+        margin-bottom: 22px;
       }
 
       .form-group label {
         display: block;
-        margin-bottom: 8px;
-        color: #555;
+        margin-bottom: 10px;
+        color: #333;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 15px;
+        letter-spacing: -0.3px;
       }
 
       .form-group input {
         width: 100%;
-        padding: 12px 15px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        font-size: 15px;
+        padding: 14px 16px;
+        border: 2px solid #e1e1e1;
+        border-radius: 12px;
+        font-size: 16px;
         transition: all 0.3s;
+        background-color: #fafafa;
       }
 
       .form-group input:focus {
         outline: none;
-        border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        border-color: #d81b60;
+        box-shadow: 0 0 0 3px rgba(216, 27, 96, 0.12);
+        background-color: white;
       }
 
       .login-btn {
         width: 100%;
-        padding: 14px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 16px;
+        background: linear-gradient(135deg, #d81b60 0%, #c2185b 100%);
         color: white;
         border: none;
-        border-radius: 8px;
-        font-size: 16px;
+        border-radius: 12px;
+        font-size: 17px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 12px rgba(216, 27, 96, 0.25);
       }
 
       .login-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 15px rgba(216, 27, 96, 0.35);
       }
 
       .login-btn:active {
-        transform: translateY(0);
+        transform: translateY(1px);
+        box-shadow: 0 2px 8px rgba(216, 27, 96, 0.3);
       }
 
       .login-btn:disabled {
         background: #ccc;
         cursor: not-allowed;
         transform: none;
+        box-shadow: none;
       }
 
       .error-message {
         color: #e74c3c;
-        background: #fadbd8;
-        padding: 12px 15px;
-        border-radius: 8px;
+        background: #fff5f5;
+        padding: 14px 16px;
+        border-radius: 10px;
         margin-top: 15px;
         display: none;
-        font-size: 14px;
-        border-left: 4px solid #e74c3c;
+        font-size: 15px;
+        border-left: 4px solid #ff6b6b;
+        box-shadow: 0 2px 6px rgba(231, 76, 60, 0.1);
+        line-height: 1.4;
       }
 
       .default-credentials {
         margin-top: 25px;
-        padding: 15px;
-        background: #f8f9fa;
-        border-radius: 8px;
+        padding: 16px;
+        background: #fff9fb;
+        border-radius: 12px;
         text-align: center;
-        border: 1px solid #e9ecef;
+        border: 1px solid #ffd4dc;
       }
 
       .default-credentials h3 {
-        color: #667eea;
+        color: #d81b60;
         margin-bottom: 10px;
-        font-size: 16px;
+        font-size: 17px;
+        font-weight: 600;
       }
 
       .default-credentials p {
-        margin: 5px 0;
+        margin: 6px 0;
         color: #555;
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.5;
       }
 
       .default-credentials strong {
-        color: #333;
+        color: #d32f2f;
         background: #fff;
-        padding: 2px 8px;
-        border-radius: 4px;
+        padding: 3px 9px;
+        border-radius: 5px;
         font-family: "Courier New", monospace;
+        font-weight: bold;
+        border: 1px solid #ffebee;
+        display: inline-block;
+        margin-top: 3px;
+      }
+
+      /* Mobile optimizations */
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+        }
+
+        .login-container {
+          padding: 28px 22px;
+          border-radius: 18px;
+          margin: 10px;
+        }
+
+        .login-header h1 {
+          font-size: 24px;
+          gap: 8px;
+        }
+
+        .login-logo {
+          height: 60px;
+        }
+
+        .login-header p {
+          font-size: 14px;
+          padding: 0 8px;
+        }
+
+        .form-group label {
+          font-size: 15px;
+          margin-bottom: 9px;
+        }
+
+        .form-group input {
+          padding: 15px 16px;
+          font-size: 16px;
+          border-radius: 14px;
+        }
+
+        .login-btn {
+          padding: 17px;
+          font-size: 18px;
+          border-radius: 14px;
+        }
+
+        .error-message {
+          font-size: 14px;
+          padding: 12px 15px;
+        }
+
+        .default-credentials {
+          padding: 15px;
+          margin-top: 20px;
+        }
+
+        .default-credentials h3 {
+          font-size: 16px;
+        }
+
+        .default-credentials p {
+          font-size: 14px;
+        }
+      }
+
+      /* Extra small screens */
+      @media (max-width: 320px) {
+        .login-container {
+          padding: 25px 18px;
+        }
+
+        .login-header h1 {
+          font-size: 22px;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .login-logo {
+          height: 50px;
+          width: auto;
+        }
+
+        .login-header p {
+          font-size: 13px;
+        }
+
+        .form-group label {
+          font-size: 14px;
+        }
+
+        .form-group input {
+          padding: 14px 15px;
+          font-size: 15px;
+        }
+
+        .login-btn {
+          padding: 16px;
+          font-size: 17px;
+        }
+
+        .error-message {
+          font-size: 13px;
+          padding: 10px 12px;
+        }
       }
     </style>
   </head>
   <body>
     <div class="login-container">
       <div class="login-header">
-        <h1>🔐 Login</h1>
+        <h1>
+          <img src="images/10.jpg" alt="Plush Login Logo" class="login-logo" />
+          Login
+        </h1>
         <p>Please enter your credentials to continue</p>
       </div>
 
@@ -189,6 +301,7 @@
             name="username"
             placeholder="Enter username"
             required
+            autocomplete="username"
           />
         </div>
 
@@ -200,67 +313,77 @@
             name="password"
             placeholder="Enter password"
             required
+            autocomplete="current-password"
           />
         </div>
 
         <button type="submit" class="login-btn" id="login-btn">Login</button>
       </form>
+    </div>
 
-    <script type="module">
-      import {
-        getAuth,
-        signInWithEmailAndPassword,
-      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-      // Wait for Firebase to initialize
-      setTimeout(() => {
-        const auth = getAuth();
-        const loginForm = document.getElementById("login-form");
-        const errorMessage = document.getElementById("error-message");
-        const loginBtn = document.getElementById("login-btn");
-
-        loginForm.addEventListener("submit", async (e) => {
+    <script>
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (e) {
           e.preventDefault();
 
           const username = document.getElementById("username").value.trim();
           const password = document.getElementById("password").value.trim();
+          const errorMessage = document.getElementById("error-message");
+          const loginBtn = document.getElementById("login-btn");
 
           // Clear previous errors
           errorMessage.style.display = "none";
           errorMessage.textContent = "";
           loginBtn.disabled = true;
 
-          try {
-            // Simple validation for default credentials
+          // Simulate a small delay for better UX
+          setTimeout(() => {
+            // Validate credentials
             if (username === "bunnyandcoco" && password === "lingling") {
-              // For Firebase Authentication, we need an email
-              // You can create a Firebase user with email: bunnyandcoco@default.com and password: lingling
-              // Or use simple client-side validation
+              // Show success message before redirecting
+              errorMessage.textContent = "✅ Login successful! Redirecting...";
+              errorMessage.style.display = "block";
+              errorMessage.style.color = "#27ae60";
+              errorMessage.style.borderColor = "#2ecc71";
+              errorMessage.style.background = "#f6fef6";
 
-              // Option 1: Simple client-side validation (no Firebase auth)
-              window.location.href = "index2.html";
-
-              // Option 2: If you want to use Firebase Auth, uncomment below:
-              /*
-                        const userCredential = await signInWithEmailAndPassword(auth, 'bunnyandcoco@default.com', password);
-                        if (userCredential.user) {
-                            window.location.href = 'index2.php';
-                        }
-                        */
+              // Redirect after a short delay
+              setTimeout(() => {
+                window.location.href = "secret-valentine.html";
+              }, 1200);
             } else {
-              throw new Error("Invalid username or password");
+              // Failed login
+              errorMessage.textContent =
+                "❌ Invalid username or password. Please try again.";
+              errorMessage.style.display = "block";
+              errorMessage.style.color = "#e74c3c";
+              errorMessage.style.borderColor = "#ff6b6b";
+              errorMessage.style.background = "#fff5f5";
+              document.getElementById("password").value = "";
+              loginBtn.disabled = false;
+
+              // Focus on password field for quick retry
+              document.getElementById("password").focus();
             }
-          } catch (error) {
-            errorMessage.textContent =
-              "❌ Invalid username or password. Please try again.";
-            errorMessage.style.display = "block";
-            document.getElementById("password").value = "";
-            console.error("Login error:", error);
-          } finally {
-            loginBtn.disabled = false;
+          }, 400);
+        });
+
+      // Allow Enter key to submit
+      document
+        .getElementById("password")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            document.getElementById("login-form").requestSubmit();
           }
         });
-      }, 500);
+
+      // Focus username field on page load for better mobile experience
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          document.getElementById("username").focus();
+        }, 300);
+      });
     </script>
   </body>
 </html>

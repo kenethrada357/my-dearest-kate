@@ -417,15 +417,14 @@ body::before {
   justify-content: center;
 }
 
-.card-icon::before {
-  content: "❤";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  font-size: 3rem;
-  background: linear-gradient(45deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Add this instead */
+.card-icon img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  height: auto;
+  width: auto;
 }
 
 .card h3 {

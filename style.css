@@ -125,14 +125,14 @@ body::before {
   border-radius: 3px;
 }
 
-/* Hero Section */
 .hero-section {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  background: linear-gradient(135deg, #ff9e9e 0%, #ff7070 100%);
+  background: url("/images/9.jpg") no-repeat center center fixed;
+  background-size: cover;
   text-align: center;
   color: white;
   overflow: hidden;
@@ -1372,4 +1372,39 @@ button:hover ~ .cursor-follower,
   border-radius: 12px;
   border-left: 4px solid var(--primary);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+@media (max-width: 768px) {
+  .hero-section {
+    background-attachment: scroll; /* Changed from fixed to scroll for better mobile performance */
+    background-position: center 30%; /* Adjust position for mobile view */
+  }
+
+  .hero-section h1 {
+    font-size: 3.5rem; /* Smaller text for mobile */
+    letter-spacing: 2px;
+  }
+
+  .hero-section p {
+    font-size: 1.6rem; /* Smaller text for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    background-position: center 40%; /* Further adjust for smaller screens */
+    height: 90vh; /* Slightly smaller height */
+  }
+
+  .hero-section h1 {
+    font-size: 2.8rem; /* Even smaller for very small screens */
+  }
+
+  .hero-section p {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+  }
 }

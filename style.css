@@ -1272,7 +1272,7 @@ button:hover ~ .cursor-follower,
 }
 
 .edit-save-btn {
-  background: linear-gradient(45deg, var(--primary), #c62828);
+  background: linear-gradient(45deg, var(--primary), #2196f3);
   color: white;
 }
 

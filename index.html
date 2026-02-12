@@ -3,708 +3,264 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Something for Someone I Care About</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Sacramento&display=swap"
-      rel="stylesheet"
-    />
+    <title>Login</title>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDU-YmdVWIDDiQq827hlOAXZyPW2xWeXGk",
+        authDomain: "my-login-project-f46c0.firebaseapp.com",
+        projectId: "my-login-project-f46c0",
+        storageBucket: "my-login-project-f46c0.firebasestorage.app",
+        messagingSenderId: "543180001053",
+        appId: "1:543180001053:web:e07b86beb95cdf954bdbf4",
+        measurementId: "G-41Q2E8K05G",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Make auth available globally
+      window.auth = auth;
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .login-container {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 420px;
+      }
+
+      .login-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .login-header h1 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .login-header p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 15px;
+        transition: all 0.3s;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      .login-btn {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .login-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .login-btn:active {
+        transform: translateY(0);
+      }
+
+      .login-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .error-message {
+        color: #e74c3c;
+        background: #fadbd8;
+        padding: 12px 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+        display: none;
+        font-size: 14px;
+        border-left: 4px solid #e74c3c;
+      }
+
+      .default-credentials {
+        margin-top: 25px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        text-align: center;
+        border: 1px solid #e9ecef;
+      }
+
+      .default-credentials h3 {
+        color: #667eea;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .default-credentials p {
+        margin: 5px 0;
+        color: #555;
+        font-size: 14px;
+      }
+
+      .default-credentials strong {
+        color: #333;
+        background: #fff;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+      }
+    </style>
   </head>
   <body>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-    <!-- Floating Hearts Background -->
-    <div class="floating-hearts"></div>
-    <!-- Section 1: Home -->
-    <section id="home" class="section hero-section">
-      <div class="overlay"></div>
-      <div class="content">
-        <h1 class="fade-in">Hii Kate Happy Valentine's Day!!</h1>
-        <p class="fade-in delay-1">"A Little Note for Someone Special"</p>
-        <button class="btn fade-in delay-2" onclick="scrollToSection('#about')">
-          Scroll Down po hahaha
-        </button>
+    <div class="login-container">
+      <div class="login-header">
+        <h1>🔐 Login</h1>
+        <p>Please enter your credentials to continue</p>
       </div>
-    </section>
-    <!-- Section 2: About -->
-    <section id="about" class="section about-section">
-      <div class="container">
-        <h2 class="section-title slide-up">COCO & Bunny</h2>
-        <div class="content-box">
-          <div class="image-box slide-right">
-            <img src="images/1.jpg" alt="Our Picture" />
-          </div>
-          <div class="text-content slide-left">
-            <h3>Flowers for you po galing kay COCO</h3>
-            <p>
-              and so ayun lagi ka nilang nireremind sakin lalo si coco pero
-              thankyou dahil nagkaron ako ng plushie and ikkeep ko sila ang cute
-              nila e then sya din kausap ko pag namimiss ka.
-            </p>
-            <p>
-              thankyouu sa gift mo and baka bumili din ako ng isang plushie
-              secret kung ano yun, isa pa don they don't smell like you anymore
-              na hahaha kainis.
-            </p>
-            <p>
-              and last si popo yung keychain na binigay mo, lagi ko syang gamit
-              e maraming may gustong umangkin sa kanya pero sabi ko bawal e so
-              ayun lang notes ko about sa plushie oa pero gusto ko lang na
-              updated ka sa kanila.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Section 3: Message -->
-    <section id="message" class="section message-section">
-      <div class="container">
-        <h2 class="section-title slide-up">A Gentle Reminder</h2>
-        <div class="message-cards">
-          <div class="card slide-up delay-1">
-            <div class="card-icon"></div>
-            <h3>Stay Well, Your Health is a Priority</h3>
-            <p>
-              I've noticed you've been getting sick lately, so please make sure
-              na nag rerest ka. iknow na marami kang priorities so iwas ka sa
-              mga bawal and mag take ka ng vitamins kung kinakailangan
-            </p>
-          </div>
-          <div class="card slide-up delay-2">
-            <div class="card-icon"></div>
-            <h3>For the Days It Feels Heavy</h3>
-            <p>
-              Remember, on days when it feels like everything is too much, you
-              really don't have to carry the weight alone. Okay lang na mapagod
-              minsan, and it's okay to take a break from your own thoughts.
-              willing ako makinig whenever if you're ready. so wag ka mahiya na
-              kausapin ako ah.
-            </p>
-          </div>
-          <div class="card slide-up delay-3">
-            <div class="card-icon"></div>
-            <h3>A Gentle Reminder of Your Worth</h3>
-            <p>
-              It's okay to be productively restful stop feeling guilty for
-              resting. resting is not sayang sa oras it's actually what your
-              brain needs para hindi ka ma-burnout and hindi matrigger anxiety
-              mo.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Section 4: Music Playlist -->
-    <section id="music" class="section music-section">
-      <div class="container">
-        <h2 class="section-title slide-up">Music That Speaks Your Name</h2>
-        <div class="spotify-container slide-up delay-1">
-          <iframe
-            src="https://open.spotify.com/embed/playlist/6UfxpUiVGx2GljGkIFSZIy?utm_source=generator&theme=0"
-            width="100%"
-            height="380"
-            frameborder="0"
-            allow="encrypted-media"
-            loading="lazy"
-          >
-          </iframe>
-        </div>
-        <p class="music-note slide-up delay-2">
-          Every time I hear these songs, parang naririnig ko ulit yung boses mo,
-          yung kwentuhan natin hanggang madaling araw. Parang background score
-          ng mga memories natin hahaha kahit hindi na tayo magkausap, these
-          songs that will always remind me of you.
-        </p>
-      </div>
-    </section>
-    <!-- Section 5: Gallery -->
-    <section id="gallery" class="section gallery-section">
-      <div class="container">
-        <h2 class="section-title slide-up">Cutie Drawing</h2>
-        <div class="gallery-grid">
-          <div class="gallery-item zoom-in">
-            <img src="images/4.jpg" alt="Memory 1" />
-            <div class="overlay-text">Miss na kita</div>
-          </div>
-          <div class="gallery-item zoom-in delay-1">
-            <img src="images/5.jpg" alt="Memory 2" />
-            <div class="overlay-text">Garden ko</div>
-          </div>
-          <div class="gallery-item zoom-in delay-2">
-            <img src="images/6.jpg" alt="Memory 3" />
-            <div class="overlay-text">Flower for you po</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Section 6: Love Letter -->
-    <section id="letter" class="section letter-section">
-      <div class="container">
-        <h2 class="section-title slide-up">My Side</h2>
-        <div class="letter-box slide-up delay-1">
-          <div class="letter-header">
-            <p>My Dearest Kate,</p>
-          </div>
-          <div class="letter-body">
-            <p>
-              mahaba to kaya sana wag ka tamarin and so ayun tatagalugin ko
-              nalang para hindi ako mahirapan hahhaa hiii kate kumusta ka?
-              nagkakasakit ka pa ba? na ppressure ba ikaw sa study mo?
-              nattrigger ba lagi yung anxiety mo? wala akong balita sayo e and
-              nahihiya naman ako na kumustahin ka and you know naman na nahihiya
-              ako sayo, nag simple effort lang ako kasi ayoko lang na mamiss
-              yung oppurtunity na ito kaya ginawa ko na at para wala akong
-              pagsisihan.
-            </p>
-            <p>
-              and about sa nangyari that time galit ako non, ewan ko gusto
-              kitang iunfriend lahat pero parang nagsisisi na ako ngayon kasi
-              ginawa ko sya hahaha, hindi ako nag explain about sa side ko kasi
-              ayokong magsalita pag ganon yung naffeel ko e baka mamaya may
-              masabi akong hindi maganda or baka mamaya nanunumbat na pala ako
-              so ayoko na may marinig kang ganon sakin.
-            </p>
-            <p>
-              iknow na mali nga yung hindi ako nag eexplain pero kasi mabigat
-              sakin e and netong nakaraan ewan sobrang hindi ako okay, gusto
-              kitang kumustahin or kahit marinig ko lang boses mo feeling ko
-              okay na ako non pero ayoko, kasi ayokong mag umpisa nanaman ako
-              baka mamaya hindi na talaga okay para sayo na kausapin kita.
-            </p>
-            <p>
-              maraming nangyari sakin netong nakaraang araw, gusto ko nga
-              ikwento sayo e pero bawal so nag drama nalang ako sa socmed medyo
-              childish pero hayaan mo na lumipas naman na hahaha and about dito
-              sa ginawa ko syempre hindi sya madali and inaral ko sya kaya
-              nagawa ko then hindi sya template na dinadownload ah basta gawa ko
-              sya at nakakaproud sya kasi may natutunan nanaman ako hahaha.
-            </p>
-            <p>
-              ang so ayun dito ko nalnag kwento hahaha si nat nasa makati na so
-              wala na me kasama kaya bihira nalang me lumabas, and about sa
-              alcohol hindi na me nag ttake non, last time nag take ako ng cobra
-              and sting kasi lagi ako inaantok na nilalata e and sobrang daming
-              ginagawa sa school then sa bahay need gawin yung system kaya nag
-              take ako non and ml nalnag yung pahinga ko kaya napanin mo nung
-              nag ml tayo parang hindi ako maligalig pagod e.
-            </p>
-            <p>
-              tapos about sa cobra and sting nakita ni mama sa kwarto ko ahahhaa
-              galit na galit sya e kaya ayon hindi na ako nag ttake, hindi na
-              rin ako nag cocoffee, matcha nalnag sya and strawberry milk and
-              about sa vape nagiging madalas na e siguro dahil stress ako and
-              dun pala sa templado tatlo talaga kami mag ttemplado nun hindi
-              kasama si nat ewan ko bat nasabi ni nat na napadaan don.
-            </p>
-            <p>
-              pero ang totoo non e inaya ko talaga dalawa kong friend then
-              templado punta tapos chinat ko si nat e sakto nasa glorietta sila
-              ng mga friends nya so inaya ko tapos nung nasa templado kami e
-              kami lang tao tapos may ano don e yung sa parang confession wall
-              ba yun basta ayun pero what if sya, nag lagay ako don eh nabasa
-              mo? halatang sakin yun kasi may coco and bunyy e hahaha eme eme
-              lang yun namimiss kita e.
-            </p>
-            <p>
-              and about naman sa namimiss e ayun lagi kita namimiss, walang araw
-              na hindi kita namiss, pero ngayon lang to mawawala din to hahahha
-              hanggang sa masasanay nalang ulit ako sanayan ba hahaha, pag
-              namimiss kita kinakausap ko si coco then nihhug ko sya bago
-              matulog naging routine ko sya galing nga e ang comfy nya kaso
-              hindi mo na sila kaamoy, minsan nag bbasa ako book pag may time o
-              maligalig ako.
-            </p>
-            <p>
-              and about sa socmed, iknow na papansin nga ako puro ako parinig,
-              pero feeling ko hindi mo naman siguro nakikita kasi hindi na tayo
-              mutual e, inunfriend kita kasi lagi kitang makikita e then parang
-              lalakas loob ko na kausapin ulit kita minsan ni vview ko story mo
-              gamit acc ko, wala akong dump acc e kaya sana hindi mo napapansin
-              yun.
-            </p>
-            <p>
-              yung about sa note na yan, hindi naman about sa confession or
-              about sa love, ahm siguro last update na yan?? siguro kasi parang
-              wala na akong nakikitang chance e, and alam mo ba nagsisisi akong
-              inunfriend kita kasi ewan gusto ko umeepal ka lagi sa fb, ig world
-              ko pero pag naman ganon e itutulak nanaman yung loob ko na
-              kausapin ka, pero sana mutual ulit tayo pero sana lang naman.
-            </p>
-            <p>
-              and about sa dump acC mo bakit mo ako binlock sa dump acc mo?
-              walalang curious lang ako, and about sa life ko, syempre mabigat
-              sakin yung nangyari pero hinAhayaan ko nalng, wala e nirerespeto
-              ko yung desisyon mo, feeliNg ko nga ngayon and disrespectful kong
-              tao kasi gumawa ako ng ganito pero yaan mo na last naman na siguro
-              to.
-            </p>
-            <p>
-              and ayun lang siguro ang haba na e, anddd i Wish na nakatulong
-              yung reminder notE ko sayo so sana iapply mo sa self mo, and yung
-              niremind ko sayo na pag sobrang bigat na pwede mo naman ako
-              kausapin or pag hindi mo kaya e lumabas kayo ng friends mo ganon
-              then idaan mo sa prayy para kahiT pano gumaan pero wag mo parin
-              kalimutan na willing ako makinig sayo and fRee time naman ako pag
-              dating sayo.
-            </p>
-            <p>
-              and sana nakatulong sayo yung desisYon na napili mo kasi kasi
-              kahit ayoko pinilit ko e baka ayun talaga nakakabuti sayo and lagi
-              ka mag iingat kate ahh wag mo pabayaAn sarili mo, iwasan mo mag
-              puyat, iwasan mo mag palipas nG gutom, iwasan mo magpatuyo ng
-              pawis sa likod para hindi ka mag kAsakit, iwasan mo yung mga bawal
-              and about sa fam mo pasabI mag ingat kamo sila and alagaan nila
-              sarili nila then alagaan din nila yung magaN?da nilang anak bahaha
-              topic of ganda sayang lang at hindi ko manlang nakita yung mga
-              dress mo habang suot mo sila, ang ganda mo dun e sobra.
-            </p>
-            <p>
-              and yung about satin, sorry ah kung ganon yung nangyari, sorry po
-              kate. yung about sa mad wala na yun pinalipas ko na inisip ko
-              nalang na para sayo naman talaga yan iwish na nakatulong ako sayo
-              na nabawan yung mga gampanin mo sa buhay, sorry katee and
-              thankyouu, mag ingat ka palagi ayokong may mababalitaan sayo pag
-              inaway kanila sabihin mo sakin aawayin natin sila, and about sa
-              flowers e ayan si coco na nag bigay hahaha and so ayun lang sana
-              binasa mo para hindi sayang thankyouu ulit and sorry.
-            </p>
-          </div>
-          <div class="letter-footer">
-            <p>imissyouuuu,</p>
-            <p><strong>ken pogi</strong></p>
-          </div>
-          <div class="seal">❤</div>
-        </div>
-      </div>
-    </section>
-    <!-- Special Button Section -->
-    <section class="special-button-section">
-      <div class="button-container">
-        <div class="note-message">
-          <p>I made flowers for you 💐</p>
-        </div>
-        <button
-          class="special-heart-btn"
-          onclick="window.location.href='index2.html'"
-        >
-          <i class="fas fa-arrow-right"></i> Click here
-          <i class="fas fa-arrow-right"></i>
-        </button>
-      </div>
-    </section>
-    <!-- Section 7: Comments -->
-    <section id="comments" class="section comments-section">
-      <div class="container">
-        <h2 class="section-title slide-up">Leave a Comment</h2>
+      <div id="error-message" class="error-message"></div>
 
-        <!-- Instruction Note -->
-        <p class="comment-instruction slide-up delay-1">
-          May comment ka? Pwede ka mag-comment if gusto mo and makikita ko sya.
-        </p>
-
-        <!-- Comment Form -->
-        <div class="comment-form slide-up delay-2">
-          <h3>Write Your Comment</h3>
-          <div class="comment-input-group">
-            <label for="commentText">Your Message</label>
-            <textarea
-              id="commentText"
-              class="comment-input"
-              placeholder="Write your comment here..."
-              required
-            ></textarea>
-          </div>
-          <button class="comment-submit-btn" onclick="addComment()">
-            Submit Comment
-          </button>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter username"
+            required
+          />
         </div>
 
-        <!-- Comments List -->
-        <div class="comments-list" id="commentsList">
-          <!-- Comments will be displayed here dynamically -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            required
+          />
         </div>
-      </div>
-    </section>
-    <!-- Footer Note -->
-    <footer class="footer-note">
-      <div class="footer-container">
-        <p class="footer-text">
-          hindi sya downloaded na template or app. ako lang ang gumawa nyan so
-          wag mo isshare sa iba yung link ah para sayo lang yan and tayo lang
-          ang nakakakita hehe thankyou katee.
-        </p>
-      </div>
-    </footer>
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-progress-container">
-      <div class="scroll-progress-bar" id="progressBar"></div>
-    </div>
-    <script>
-      // Create floating hearts
-      document.addEventListener("DOMContentLoaded", () => {
-        const heartsContainer = document.querySelector(".floating-hearts");
-        const heartChars = ["❤", "💕", "💖", "💗", "💓", "💝", "💟"];
-        for (let i = 0; i < 25; i++) {
-          const heart = document.createElement("div");
-          heart.className = "heart";
-          heart.innerHTML =
-            heartChars[Math.floor(Math.random() * heartChars.length)];
-          // Random position, size and animation duration
-          const size = Math.random() * 1.5 + 0.5;
-          const posX = Math.random() * 100;
-          const delay = Math.random() * 15;
-          const duration = Math.random() * 10 + 10;
-          heart.style.fontSize = `${size}rem`;
-          heart.style.left = `${posX}%`;
-          heart.style.animationDelay = `${delay}s`;
-          heart.style.animationDuration = `${duration}s`;
-          heart.style.opacity = "0";
-          heartsContainer.appendChild(heart);
-        }
-        // Create heart bursts on click
-        document.addEventListener("click", (e) => {
-          if (e.target.closest("button, a, .gallery-item")) return;
-          const heart = document.createElement("div");
-          heart.className = "heart-burst";
-          heart.innerHTML = "❤";
-          heart.style.left = `${e.clientX}px`;
-          heart.style.top = `${e.clientY}px`;
-          // Random direction
-          const angle = Math.random() * Math.PI * 2;
-          const distance = 50 + Math.random() * 50;
-          heart.style.setProperty("--tx", `${Math.cos(angle) * distance}px`);
-          heart.style.setProperty("--ty", `${Math.sin(angle) * distance}px`);
-          document.body.appendChild(heart);
-          // Remove after animation
-          setTimeout(() => {
-            heart.remove();
-          }, 1000);
-        });
-        // Custom cursor
-        const cursor = document.querySelector(".cursor");
-        const cursorFollower = document.querySelector(".cursor-follower");
-        document.addEventListener("mousemove", (e) => {
-          const posX = e.clientX;
-          const posY = e.clientY;
-          cursor.style.left = `${posX}px`;
-          cursor.style.top = `${posY}px`;
-          // Follower has delay
-          setTimeout(() => {
-            cursorFollower.style.left = `${posX}px`;
-            cursorFollower.style.top = `${posY}px`;
-          }, 50);
-        });
-        // Cursor interactions
-        document
-          .querySelectorAll("a, button, .gallery-item")
-          .forEach((elem) => {
-            elem.addEventListener("mouseenter", () => {
-              cursor.style.transform = "translate(-50%, -50%) scale(2.5)";
-              cursorFollower.style.transform =
-                "translate(-50%, -50%) scale(1.8)";
-              cursor.style.background = "#d81b60";
-              cursorFollower.style.background = "#e53935";
-            });
-            elem.addEventListener("mouseleave", () => {
-              cursor.style.transform = "translate(-50%, -50%) scale(1)";
-              cursorFollower.style.transform = "translate(-50%, -50%) scale(1)";
-              cursor.style.background = "#e53935";
-              cursorFollower.style.background = "#f48fb1";
-            });
-          });
-      });
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
+
+        <button type="submit" class="login-btn" id="login-btn">Login</button>
+      </form>
+
+    <script type="module">
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+      // Wait for Firebase to initialize
+      setTimeout(() => {
+        const auth = getAuth();
+        const loginForm = document.getElementById("login-form");
+        const errorMessage = document.getElementById("error-message");
+        const loginBtn = document.getElementById("login-btn");
+
+        loginForm.addEventListener("submit", async (e) => {
           e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
+
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value.trim();
+
+          // Clear previous errors
+          errorMessage.style.display = "none";
+          errorMessage.textContent = "";
+          loginBtn.disabled = true;
+
+          try {
+            // Simple validation for default credentials
+            if (username === "bunnyandcoco" && password === "lingling") {
+              // For Firebase Authentication, we need an email
+              // You can create a Firebase user with email: bunnyandcoco@default.com and password: lingling
+              // Or use simple client-side validation
+
+              // Option 1: Simple client-side validation (no Firebase auth)
+              window.location.href = "index2.html";
+
+              // Option 2: If you want to use Firebase Auth, uncomment below:
+              /*
+                        const userCredential = await signInWithEmailAndPassword(auth, 'bunnyandcoco@default.com', password);
+                        if (userCredential.user) {
+                            window.location.href = 'index2.php';
+                        }
+                        */
+            } else {
+              throw new Error("Invalid username or password");
+            }
+          } catch (error) {
+            errorMessage.textContent =
+              "❌ Invalid username or password. Please try again.";
+            errorMessage.style.display = "block";
+            document.getElementById("password").value = "";
+            console.error("Login error:", error);
+          } finally {
+            loginBtn.disabled = false;
           }
         });
-      });
-      // Scroll to section function
-      function scrollToSection(sectionId) {
-        const section = document.querySelector(sectionId);
-        if (section) {
-          section.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      }
-      // Scroll progress indicator
-      window.addEventListener("scroll", function () {
-        const scrollTop = document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight;
-        const clientHeight = document.documentElement.clientHeight;
-        const scrolled = (scrollTop / (scrollHeight - clientHeight)) * 100;
-        document.getElementById("progressBar").style.width = scrolled + "%";
-      });
-      // Animation on scroll
-      const observerOptions = {
-        threshold: 0.1,
-      };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, observerOptions);
-      // Observe elements with animations
-      document
-        .querySelectorAll(
-          ".fade-in, .slide-up, .slide-left, .slide-right, .zoom-in"
-        )
-        .forEach((el) => {
-          observer.observe(el);
-        });
-      // Initialize animations on load
-      window.addEventListener("load", () => {
-        document
-          .querySelectorAll(
-            ".fade-in, .slide-up, .slide-left, .slide-right, .zoom-in"
-          )
-          .forEach((el) => el.classList.add("visible"));
-      });
-      // Initialize comments on page load
-      document.addEventListener("DOMContentLoaded", loadComments);
-
-      // Add Comment
-      function addComment() {
-        const textInput = document.getElementById("commentText");
-        const text = textInput.value.trim();
-
-        if (!text) {
-          alert("Please write a comment!");
-          return;
-        }
-
-        // Create comment object (no name field)
-        const comment = {
-          id: Date.now(),
-          text: text,
-          date: new Date().toISOString(),
-        };
-
-        // Get existing comments from localStorage
-        let comments = JSON.parse(localStorage.getItem("comments")) || [];
-
-        // Add new comment to beginning of array
-        comments.unshift(comment);
-
-        // Save to localStorage
-        localStorage.setItem("comments", JSON.stringify(comments));
-
-        // Clear form
-        textInput.value = "";
-
-        // Reload comments display
-        loadComments();
-
-        // Show success message
-        showNotification("Comment added successfully! ❤️");
-      }
-
-      // Load Comments
-      function loadComments() {
-        const commentsList = document.getElementById("commentsList");
-        const comments = JSON.parse(localStorage.getItem("comments")) || [];
-
-        if (comments.length === 0) {
-          commentsList.innerHTML = `
-      <div class="no-comments">
-        <p>Be the first to leave a comment! 💬</p>
-      </div>
-    `;
-          return;
-        }
-
-        commentsList.innerHTML = "";
-
-        comments.forEach((comment, index) => {
-          const commentDate = new Date(comment.date);
-          const formattedDate = commentDate.toLocaleDateString("en-PH", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-          });
-
-          const commentElement = document.createElement("div");
-          commentElement.className = "comment-item";
-          commentElement.innerHTML = `
-      <div class="comment-header">
-        <div class="comment-date">${formattedDate}</div>
-      </div>
-      <div class="comment-content" id="comment-content-${comment.id}">
-        ${escapeHtml(comment.text)}
-      </div>
-      <div class="comment-actions">
-        <button class="comment-btn comment-edit-btn" onclick="showEditForm(${
-          comment.id
-        })">
-          <i class="fas fa-edit"></i> Edit
-        </button>
-        <button class="comment-btn comment-delete-btn" onclick="deleteComment(${
-          comment.id
-        })">
-          <i class="fas fa-trash"></i> Delete
-        </button>
-      </div>
-      <div class="edit-form" id="edit-form-${comment.id}">
-        <textarea id="edit-text-${
-          comment.id
-        }" class="comment-input">${escapeHtml(comment.text)}</textarea>
-        <div class="edit-actions">
-          <button class="edit-cancel-btn" onclick="hideEditForm(${
-            comment.id
-          })">Cancel</button>
-          <button class="edit-save-btn" onclick="saveEdit(${
-            comment.id
-          })">Save</button>
-        </div>
-      </div>
-    `;
-
-          commentsList.appendChild(commentElement);
-        });
-      }
-
-      // Show Edit Form
-      function showEditForm(commentId) {
-        const editForm = document.getElementById(`edit-form-${commentId}`);
-        const commentContent = document.getElementById(
-          `comment-content-${commentId}`
-        );
-
-        if (editForm && commentContent) {
-          editForm.style.display = "block";
-          commentContent.style.display = "none";
-        }
-      }
-
-      // Hide Edit Form
-      function hideEditForm(commentId) {
-        const editForm = document.getElementById(`edit-form-${commentId}`);
-        const commentContent = document.getElementById(
-          `comment-content-${commentId}`
-        );
-
-        if (editForm && commentContent) {
-          editForm.style.display = "none";
-          commentContent.style.display = "block";
-        }
-      }
-
-      // Save Edit
-      function saveEdit(commentId) {
-        const editText = document
-          .getElementById(`edit-text-${commentId}`)
-          .value.trim();
-
-        if (!editText) {
-          alert("Comment cannot be empty!");
-          return;
-        }
-
-        let comments = JSON.parse(localStorage.getItem("comments")) || [];
-        const commentIndex = comments.findIndex((c) => c.id === commentId);
-
-        if (commentIndex !== -1) {
-          comments[commentIndex].text = editText;
-          comments[commentIndex].date = new Date().toISOString(); // Update timestamp
-
-          localStorage.setItem("comments", JSON.stringify(comments));
-          loadComments();
-          showNotification("Comment updated successfully!");
-        }
-      }
-
-      // Delete Comment
-      function deleteComment(commentId) {
-        if (!confirm("Are you sure you want to delete this comment?")) {
-          return;
-        }
-
-        let comments = JSON.parse(localStorage.getItem("comments")) || [];
-        comments = comments.filter((c) => c.id !== commentId);
-
-        localStorage.setItem("comments", JSON.stringify(comments));
-        loadComments();
-        showNotification("Comment deleted!");
-      }
-
-      // Helper function to prevent XSS
-      function escapeHtml(text) {
-        const div = document.createElement("div");
-        div.textContent = text;
-        return div.innerHTML;
-      }
-
-      // Show notification
-      function showNotification(message) {
-        // Create notification element
-        const notification = document.createElement("div");
-        notification.style.position = "fixed";
-        notification.style.top = "20px";
-        notification.style.right = "20px";
-        notification.style.padding = "15px 25px";
-        notification.style.backgroundColor = "#d81b60";
-        notification.style.color = "white";
-        notification.style.borderRadius = "8px";
-        notification.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.3)";
-        notification.style.zIndex = "9999";
-        notification.style.fontFamily = "'Montserrat', sans-serif";
-        notification.style.fontSize = "1rem";
-        notification.style.animation =
-          "slideIn 0.3s ease, fadeOut 0.5s ease 2.5s";
-        notification.innerHTML = message;
-
-        document.body.appendChild(notification);
-
-        // Remove after animation
-        setTimeout(() => {
-          notification.remove();
-        }, 3000);
-      }
-
-      // Add CSS animation for notification
-      const style = document.createElement("style");
-      style.innerHTML = `
-  @keyframes slideIn {
-    from {
-      transform: translateX(400px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-      transform: translateX(100px);
-    }
-  }
-`;
-      document.head.appendChild(style);
+      }, 500);
     </script>
   </body>
 </html>
